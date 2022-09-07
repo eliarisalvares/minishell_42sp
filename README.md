@@ -1,6 +1,6 @@
 # minishell
 
-*As beautiful as shell* 🔥
+*As beautiful as a shell* 🔥
 
 This project is about creating a simple shell.
 Yes, your own little bash.
