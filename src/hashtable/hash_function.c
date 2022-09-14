@@ -13,37 +13,37 @@
 #include "../../include/minishell.h"
 
 /**
- * A hash_function table is a data structure that stores data in a way that
+ * A hashtable is a data structure that stores data in a way that
  * allows fast lookup. Ideally, it should be possible to find the object we are
- * looking for in constant time (O(1)). Essentially, a hash_function table is
- * an array with a hash_function function that maps a key to an index in an
+ * looking for in constant time (O(1)). Essentially, a hashtable is
+ * an array with a hash function that maps a key to an index in an
  * array. In other words, a function that takes an input and returns an
  * integer that represents the location in which the input is stored in the
- * array. There are many different hash_function functions, but the most common
- * one is called the djb2 hash_function function. The djb2 hash_function
- * function is a simple hash_function function and is the one chosen for
- * implementation in this project. The hash_function function must always
+ * array. There are many different hash functions, but the most common
+ * one is called the djb2 hash function. The djb2 hash
+ * function is a simple hash function and is the one chosen for
+ * implementation in this project. The hash function must always
  * return a value between 0 and the size of the table - 1. It is consistent,
  * meaning that it will always return the same value for the same input.
- * @brief The djb2 hash_function function is a simple hash_function function
-and is the one chosen for implementation in this project.
+ * @brief The djb2 hash function is a simple hash function
+ * and is the one chosen for implementation in this project.
  * @seemore: https://theartincode.stanis.me/006-djb2/
  * @param key The key to be hashed.
- * @param size The size of the hash_function table.
- * @return The index in the hash_function table where the key should be stored.
+ * @param size The size of the hashtable.
+ * @return The index in the hashtable where the key should be stored.
 */
 
 unsigned long int	hash_function(char *key, unsigned int size)
 {
-	unsigned long int	hash_function;
+	unsigned long int	hash;
 	unsigned int		index;
 
-	hash_function = 5381;
+	hash = 5381;
 	index = 0;
 	while (key && key[index])
 	{
-		hash_function = ((hash_function << 5) + hash_function) + key[index];
+		hash = ((hash << 5) + hash) + key[index];
 		index++;
 	}
-	return (hash_function % size);
+	return (hash % size);
 }
